@@ -6,11 +6,22 @@ size_alphabet = len(alphabet)
 print("Bem vindo à CIFRA DE CÉSAR!")
 
 def encrypt(text, shift):
-    text_encypted = ""
+    text_encrypted = ""
     for letter in text:
         shifted_position = (alphabet.index(letter) + shift) % size_alphabet
-        text_encypted += alphabet[shifted_position]
+        text_encrypted += alphabet[shifted_position]
 
-    return print(text_encypted)
+    return text_encrypted
 
-encrypt(text=original_text, shift=shift_amount)
+print(f" texto encriptado: {encrypt(text=original_text, shift=shift_amount)}")
+
+def decrypt(text, shift):
+    text_decrypted = ""
+    for letter in text:
+        shifted_position = (alphabet.index(letter) - shift) % size_alphabet
+        text_decrypted += alphabet[shifted_position]
+
+    return text_decrypted
+
+print(f" texto decriptado: {decrypt(text=encrypt(text=original_text, shift=shift_amount), shift=shift_amount)}")
+
