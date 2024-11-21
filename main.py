@@ -26,13 +26,19 @@ def caesar(text, shift, encode_or_decode):
     else:
         print("Insira um valor válido!")
 
+should_continue = True
 
+while should_continue:
+    direction = int(input("Digite '1' para encriptar ou '2' para desencriptar: "))
+    original_text = input("Escreva o texto que deseja encriptar/decriptar: ")
+    shift_amount = int(input("Digite o número de deslocamentos: "))
+    size_alphabet = len(alphabet)
 
+    caesar(text=original_text, shift=shift_amount, encode_or_decode=direction)
 
-direction = int(input("Digite '1' para encriptar ou '2' para desencriptar: "))
-original_text = input("Escreva o texto que deseja encriptar: ")
-shift_amount = int(input("Digite o número de deslocamentos: "))
-size_alphabet = len(alphabet)
+    restart = input("Digite 'sair' se quiser parar: ").lower()
 
-caesar(text=original_text, shift=shift_amount, encode_or_decode=direction)
+    if restart == "sair":
+        should_continue = False
+        print("Obrigado e até mais!")
 
